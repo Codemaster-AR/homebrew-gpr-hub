@@ -11,13 +11,17 @@ class GprHub < Formula
   depends_on "sdl2"
 
   def install
-    # This creates a safe environment for your app
+    # 1. Create the virtualenv
     venv = virtualenv_create(libexec, "python3.12")
 
-    # This command tells Homebrew to read your setup.py and install EVERYTHING listed there
-    system libexec/"bin/pip", "install", "-v", "--ignore-installed", buildpath
+    # 2. Manually install pip inside the venv just in case it's missing
+    system libexec/"bin/python", "-m", "ensurepip", "--upgrade"
 
-    # This makes the 'gpr-hub' command available globally
+    # 3. Use the venv's python to run pip and install your package
+    # This ensures all dependencies in setup.py are handled
+    system libexec/"bin/python", "-m", "pip", "install", "-v", "--ignore-installed", buildpath
+
+    # 4. Link the executable
     bin.install_symlink libexec/"bin/gpr-hub"
   end
 
