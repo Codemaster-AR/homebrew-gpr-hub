@@ -3,8 +3,8 @@ class GprHub < Formula
 
   desc "GPR Image Reader and AI Analyzer"
   homepage "https://github.com/Codemaster-AR/gpr-hub-cli"
-  url "https://github.com/Codemaster-AR/gpr-hub-cli/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "84c7e6a87d987ed6b16ab4315e1704083a86ef06bb684e80d81d5879a032c44b"
+  url "https://github.com/Codemaster-AR/gpr-hub-cli/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "e081ac47dc5855f16ef248ff40890d1de24105618c0d4a4c93c354b3bb7362bc"
   license "MIT"
 
   depends_on "python@3.12"
